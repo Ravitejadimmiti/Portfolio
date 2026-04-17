@@ -1,59 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Ravi Teja | Portfolio</title>
-<link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ravi Teja Dimmiti | Senior SDET</title>
+  <meta name="description" content="Senior SDET with 5+ years building scalable test automation frameworks using Playwright, Selenium, and Appium for web and mobile applications." />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ravi Teja Dimmiti | Senior SDET" />
+  <meta property="og:description" content="Senior SDET specializing in Playwright, Selenium, Appium, and AI-driven testing frameworks." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ravitejadimmiti.github.io/Portfolio/" />
+
+  <!-- Favicon (inline SVG as data URI) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><text x='16' y='22' text-anchor='middle' font-family='monospace' font-size='16' fill='%2338bdf8'>R</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #060d19;
+      --bg2: #0c1829;
+      --bg3: #111f35;
+      --surface: #15243d;
+      --border: rgba(56, 189, 248, 0.12);
+      --border2: rgba(56, 189, 248, 0.22);
+      --accent: #38bdf8;
+      --accent2: #0ea5e9;
+      --accent-dim: rgba(56, 189, 248, 0.08);
+      --text: #e8f4fd;
+      --text2: #94b4cc;
+      --text3: #5a7a96;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+      background: rgba(6, 13, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text2);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 18px;
+      border-radius: 6px;
+      border: 1px solid var(--border2);
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--accent-dim);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .nav-cta:hover { background: rgba(56, 189, 248, 0.15); border-color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    main { padding-top: 60px; }
+
+    section { padding: 5rem 2.5rem; max-width: 900px; margin: 0 auto; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: calc(100vh - 60px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text2);
+      max-width: 480px;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 24px;
+      background: var(--accent);
+      color: #060d19;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 7px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: #7dd3fc; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 24px;
+      background: transparent;
+      color: var(--text2);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 7px;
+      border: 1px solid var(--border2);
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover { color: var(--text); border-color: var(--text3); transform: translateY(-1px); }
+
+    /* Avatar */
+    .avatar-wrap {
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 2px solid var(--border2);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent) 0deg, transparent 120deg, transparent 360deg);
+      z-index: -1;
+      animation: spin 8s linear infinite;
+      opacity: 0.4;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .icon-link:hover { color: var(--accent); }
+
+    .icon-link svg { width: 16px; height: 16px; }
+
+    /* ── SECTION HEADINGS ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+      line-height: 1.15;
+    }
+
+    /* ── ABOUT ── */
+    #about { border-top: 1px solid var(--border); }
+
+    .about-text {
+      font-size: 1.05rem;
+      color: var(--text2);
+      font-weight: 300;
+      line-height: 1.85;
+      max-width: 680px;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text3);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SKILLS ── */
+    #skills { border-top: 1px solid var(--border); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .skill-card:hover { border-color: var(--border2); background: var(--bg3); }
+
+    .skill-card-title {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: var(--accent-dim);
+      color: var(--text2);
+      border: 1px solid var(--border);
+    }
+
+    /* ── PROJECTS ── */
+    #projects { border-top: 1px solid var(--border); }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .project-card:hover { border-color: var(--border2); background: var(--bg3); }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .project-title {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .project-badge {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(52, 211, 153, 0.1);
+      color: var(--green);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: var(--text2);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .project-metrics {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-val {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--amber);
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .stack-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: var(--surface);
+      color: var(--text3);
+      border: 1px solid var(--border);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .proj-link {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .proj-link:hover { opacity: 0.75; }
+
+    /* ── AI ── */
+    #ai { border-top: 1px solid var(--border); }
+
+    .ai-card {
+      background: linear-gradient(135deg, var(--bg2) 0%, #0a1628 100%);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .ai-card p {
+      color: var(--text2);
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .ai-tools {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+
+    .ai-tool {
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border2);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* ── CONTACT ── */
+    #contact { border-top: 1px solid var(--border); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      color: var(--text2);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .contact-card:hover { border-color: var(--border2); color: var(--text); background: var(--bg3); }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--accent-dim);
+      border: 1px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg { width: 16px; height: 16px; color: var(--accent); }
+
+    .contact-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+    .contact-val { font-size: 14px; font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text3);
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      section { padding: 3.5rem 1.25rem; }
+      nav { padding: 0 1.25rem; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .avatar-wrap { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
 <body>
 
-<header class="hero">
-    <h1>Ravi Teja Dimmiti</h1>
-    <p>Senior SDET | Playwright | AI-driven Testing</p>
-    <div class="buttons">
-        <a href="https://github.com/Ravitejadimmiti" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/ravitejadimmiti99" target="_blank">LinkedIn</a>
-    </div>
-</header>
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">RT.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+	<a href="./Assets/LatestResume.pdf" class="nav-cta" target="_blank" download aria-label="Download Resume PDF">↓ Resume</a>
+  </nav>
 
-<section>
-    <h2>About Me</h2>
-    <p>
-        Senior SDET with 5+ years of experience in automation testing for web and mobile applications.
-        Specialized in building scalable frameworks using Selenium, Playwright, and Appium.
-    </p>
-</section>
+  <main>
 
-<section>
-    <h2>Projects</h2>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="hero-eyebrow">Open to new roles</p>
+          <h1>Ravi Teja<br /><span>Dimmiti</span></h1>
+          <p class="hero-sub">Senior SDET with 5+ years building scalable test automation frameworks — Playwright, Selenium, Appium — across web and mobile, accelerated by AI.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+              View projects
+            </a>
+			<a href="./Assets/LatestResume.pdf" class="btn-secondary" target="_blank" download aria-label="Download Resume PDF">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Resume
+            </a>
+          </div>
+          <div class="hero-links">
+            <a href="https://github.com/Ravitejadimmiti" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub profile">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/ravitejadimmiti99" target="_blank" rel="noopener" class="icon-link" aria-label="LinkedIn profile">
+              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <div class="avatar-wrap">
+          <div class="avatar" aria-label="Ravi Teja Dimmiti initials avatar">RT</div>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-        <h3>iOS Automation Framework</h3>
-        <p>Built from scratch using Appium & XCUITest. Automated release cycles and improved test coverage.</p>
-    </div>
+    <!-- ABOUT -->
+    <section id="about" class="fade-up">
+      <p class="section-label">About</p>
+      <h2>Building quality at scale</h2>
+      <p class="about-text">
+        I'm a Senior SDET focused on making software ship faster and more reliably. Over 5+ years, I've built automation frameworks from scratch, owned end-to-end test strategy for web and mobile, and increasingly leveraged AI tools to reduce the manual toil that slows teams down. I care about automation that actually runs in CI, doesn't flake, and gives teams real confidence.
+      </p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Years experience</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Platforms automated</span></div>
+        <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Flaky tests squashed</span></div>
+      </div>
+    </section>
 
-    <div class="card">
-        <h3>Web & Android Automation</h3>
-        <p>Owned automation for web and Android apps, ensuring stable and scalable test execution.</p>
-    </div>
+    <!-- SKILLS -->
+    <section id="skills" class="fade-up">
+      <p class="section-label">Skills</p>
+      <h2>Tech stack</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <p class="skill-card-title">Languages</p>
+          <div class="skill-tags">
+            <span class="tag">Java</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <p class="skill-card-title">Automation</p>
+          <div class="skill-tags">
+            <span class="tag">Playwright</span>
+            <span class="tag">Selenium</span>
+            <span class="tag">Appium</span>
+            <span class="tag">XCUITest</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <p class="skill-card-title">API & Testing</p>
+          <div class="skill-tags">
+            <span class="tag">REST Assured</span>
+            <span class="tag">Postman</span>
+            <span class="tag">TestNG</span>
+            <span class="tag">JUnit</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <p class="skill-card-title">CI / CD & Tools</p>
+          <div class="skill-tags">
+            <span class="tag">Jenkins</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Git</span>
+            <span class="tag">Docker</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <p class="skill-card-title">AI Tools</p>
+          <div class="skill-tags">
+            <span class="tag">GitHub Copilot</span>
+            <span class="tag">Claude</span>
+            <span class="tag">ChatGPT</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <!-- PROJECTS -->
+    <section id="projects" class="fade-up">
+      <p class="section-label">Projects</p>
+      <h2>What I've built</h2>
+      <div class="project-list">
 
-<section>
-    <h2>Skills</h2>
-    <p>Java, Selenium, Playwright, Appium, API Testing, Jenkins, Git, AI Tools</p>
-</section>
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">iOS Automation Framework</h3>
+            <span class="project-badge">Mobile</span>
+          </div>
+          <p class="project-desc">Designed and built an iOS test automation framework from scratch using Appium and XCUITest, integrating it into the CI pipeline to automate release regression cycles that previously required manual effort.</p>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">~40%</span><span class="metric-label">Faster release cycles</span></div>
+            <div class="metric"><span class="metric-val">200+</span><span class="metric-label">Test cases automated</span></div>
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Appium</span>
+            <span class="stack-tag">XCUITest</span>
+            <span class="stack-tag">Java</span>
+            <span class="stack-tag">Jenkins</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Ravitejadimmiti" class="proj-link" target="_blank" rel="noopener" aria-label="View iOS Automation Framework on GitHub">
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
 
-<section>
-    <h2>AI in Testing</h2>
-    <p>Using AI tools to accelerate automation development and debugging workflows.</p>
-</section>
+        <div class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Web & Android Automation Suite</h3>
+            <span class="project-badge">Web + Mobile</span>
+          </div>
+          <p class="project-desc">Owned full automation coverage for web and Android applications, building a unified test suite that ran in parallel across devices and browsers via Jenkins CI, dramatically reducing manual QA time per sprint.</p>
+          <div class="project-metrics">
+            <div class="metric"><span class="metric-val">3x</span><span class="metric-label">Faster regression runs</span></div>
+            <div class="metric"><span class="metric-val">Web + Android</span><span class="metric-label">Single unified suite</span></div>
+          </div>
+          <div class="project-stack">
+            <span class="stack-tag">Selenium</span>
+            <span class="stack-tag">Appium</span>
+            <span class="stack-tag">Playwright</span>
+            <span class="stack-tag">Java</span>
+            <span class="stack-tag">Jenkins</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/Ravitejadimmiti" class="proj-link" target="_blank" rel="noopener" aria-label="View Web and Android Automation Suite on GitHub">
+              <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
 
-<section>
-    <h2>Contact</h2>
-    <p>Email: ravitejadimmiti99@gmail.com</p>
-</section>
+      </div>
+    </section>
+
+    <!-- AI -->
+    <section id="ai" class="fade-up">
+      <p class="section-label">AI in Testing</p>
+      <h2>Working smarter with AI</h2>
+      <div class="ai-card">
+        <p>AI tools have become a core part of my daily workflow — not as a gimmick, but for real productivity gains. I use them to generate test case scaffolding from user stories, debug flaky test failures faster, and write boilerplate locators and assertions. The result: less time on repetitive setup, more time on actual test design and coverage strategy.</p>
+        <div class="ai-tools">
+          <span class="ai-tool">GitHub Copilot</span>
+          <span class="ai-tool">Claude</span>
+          <span class="ai-tool">ChatGPT</span>
+          <span class="ai-tool">AI-assisted test generation</span>
+          <span class="ai-tool">LLM-powered debugging</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-up">
+      <p class="section-label">Contact</p>
+      <h2>Let's connect</h2>
+      <div class="contact-grid">
+        <a href="mailto:ravitejadimmiti99@gmail.com" class="contact-card" aria-label="Send email to Ravi Teja">
+          <div class="contact-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          </div>
+          <div>
+            <p class="contact-label">Email</p>
+            <p class="contact-val">ravitejadimmiti99@gmail.com</p>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/ravitejadimmiti99" target="_blank" rel="noopener" class="contact-card" aria-label="Visit Ravi Teja's LinkedIn profile">
+          <div class="contact-icon">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div>
+            <p class="contact-label">LinkedIn</p>
+            <p class="contact-val">ravitejadimmiti99</p>
+          </div>
+        </a>
+        <a href="https://github.com/Ravitejadimmiti" target="_blank" rel="noopener" class="contact-card" aria-label="Visit Ravi Teja's GitHub profile">
+          <div class="contact-icon">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </div>
+          <div>
+            <p class="contact-label">GitHub</p>
+            <p class="contact-val">Ravitejadimmiti</p>
+          </div>
+        </a>
+		<a href="./Assets/LatestResume.pdf" class="contact-card" target="_blank" download aria-label="Download Resume PDF">
+          <div class="contact-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+          </div>
+          <div>
+            <p class="contact-label">Resume</p>
+            <p class="contact-val">Download PDF</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built by Ravi Teja Dimmiti &nbsp;·&nbsp; 2025</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>

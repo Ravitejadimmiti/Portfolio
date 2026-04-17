@@ -1,32 +1,97 @@
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #0f172a, #1e293b);
     color: white;
 }
 
+/* HERO */
 .hero {
-    text-align: center;
-    padding: 100px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px;
 }
 
-.buttons a {
-    margin: 10px;
+/* TEXT */
+.hero-left h1 {
+    font-size: 48px;
+}
+
+.hero-left p {
+    color: #94a3b8;
+}
+
+/* BUTTONS */
+.hero-buttons a {
     padding: 10px 20px;
     background: #38bdf8;
     color: black;
+    border-radius: 25px;
     text-decoration: none;
-    border-radius: 20px;
+    margin-right: 10px;
 }
 
+/* IMAGE */
+.profile-wrapper {
+    position: relative;
+}
+
+.profile-img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #38bdf8;
+    box-shadow: 0 0 30px rgba(56,189,248,0.6);
+}
+
+/* NAME CARD */
+.name-card {
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    background: #38bdf8;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+/* SECTIONS */
 section {
     padding: 40px;
 }
 
+/* CARDS */
 .card {
     background: rgba(255,255,255,0.05);
     padding: 20px;
     margin: 15px 0;
     border-radius: 12px;
     backdrop-filter: blur(10px);
+}
+
+/* CONTACT */
+.contact-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+}
+
+/* LINKS */
+a {
+    color: #38bdf8;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-right {
+        margin-top: 30px;
+    }
 }
